@@ -10,3 +10,5 @@ When to use this pattern:
   - Observability and cost management
 
 - You want to iterate on agent behavior (prompts, tools, models) in Foundry without redeploying the app.
+
+To run this code make sure to set config value for "FoundryProjectEndpoint" properly, and set AgentDemoController.agentName parameter value.
