@@ -11,7 +11,8 @@ namespace MicrosoftAgentWithFoundryDemo.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class AgentDemoController(ILogger<AgentDemoController> logger,IConfiguration configuration) : ControllerBase
-    {                                                                
+    {
+        const string agentName = "MyPOCAgent";
 
         [RequiresPreviewFeatures("AIProjectClient is a preview feature")]
         [HttpGet(Name = "Chat")]
@@ -22,7 +23,7 @@ namespace MicrosoftAgentWithFoundryDemo.Controllers
                 string projectEndpoint = configuration["FoundryProjectEndpoint"]
                     ?? throw new InvalidOperationException("Configuration key 'FoundryProjectEndpoint' is not set.");
 
-                const string agentName = "MyPOCAgent";
+                
 
                 AIProjectClient projectClient = new(endpoint: new Uri(projectEndpoint), tokenProvider: new DefaultAzureCredential());
 
